@@ -4,10 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#0f766e">
-  <meta name="description" content="面向英语四级冲刺的移动学习网页 App，含单词学习、听力训练、作文练习、真题记录和每日打卡。">
+  <meta name="description" content="配合四级单词书使用的规划、打卡、做题记录和错题纠正网页。">
   <link rel="manifest" href="manifest.json">
   <link rel="stylesheet" href="styles.css">
-  <title>四级冲刺学习台</title>
+  <title>四级单词书搭配学习台</title>
 </head>
 <body>
   <div class="orb orb-left"></div>
@@ -18,16 +18,15 @@
       <a class="brand" href="#home">
         <span class="brand-mark">4</span>
         <span class="brand-copy">
-          <strong>四级冲刺学习台</strong>
-          <small>词汇 · 听力 · 写作 · 真题 · 打卡</small>
+          <strong>四级单词书搭配学习台</strong>
+          <small>规划 · 打卡 · 做题记录 · 纠错</small>
         </span>
       </a>
       <div class="nav-links">
-        <a href="#dashboard">总览</a>
-        <a href="#vocab-lab">单词</a>
-        <a href="#listening-lab">听力</a>
-        <a href="#writing-studio">作文</a>
-        <a href="#mock-center">真题</a>
+        <a href="#plan-center">规划</a>
+        <a href="#wordbook-log">单词书</a>
+        <a href="#practice-log">做题</a>
+        <a href="#error-lab">纠错</a>
         <a href="#check-in">打卡</a>
       </div>
     </nav>
@@ -35,15 +34,16 @@
     <header class="hero" id="home">
       <div class="hero-copy">
         <p class="eyebrow">2026 上半年 CET-4</p>
-        <h1>把四级备考做成一款你每天都愿意打开的小产品</h1>
+        <h1>背完单词以后，最重要的是把进度和错误留下来</h1>
         <p class="lead">
-          你现在最需要的不是“资料越多越好”，而是一套
-          <strong>真能坚持、真能补短板、真能看见进步</strong>
-          的学习系统。这一版已经把单词、听力、作文、真题记录和打卡监督整合到一起。
+          这个网页不替你背单词，它专门配合你的单词书使用。
+          你只需要在这里做四件事：
+          <strong>记今天背了多少、记今天做了什么题、记错在哪里、记明天补什么。</strong>
         </p>
         <div class="hero-actions">
-          <a class="button primary" href="#vocab-lab">开始学今天的单词</a>
-          <a class="button secondary" href="#check-in">去打卡</a>
+          <a class="button primary" href="#wordbook-log">记录今天背词</a>
+          <a class="button secondary" href="#practice-log">记录今天做题</a>
+          <a class="button secondary" href="#check-in">今晚打卡</a>
           <button class="button ghost" id="installBtn" hidden>安装到手机桌面</button>
         </div>
       </div>
@@ -51,319 +51,374 @@
         <article class="countdown-card">
           <p class="countdown-label">距离 2026 年 6 月 13 日考试还有</p>
           <p class="countdown-days" id="countdownDays">50</p>
-          <p class="countdown-note">今天不是拼状态，而是把该做的小任务做完。</p>
+          <p class="countdown-note">新内容建议尽量在 5 月底前收口，后面以复盘和纠错为主。</p>
         </article>
-        <article class="book-callout">
-          <p class="mini-label">推荐词汇书</p>
-          <h2>《四级词汇闪过》</h2>
-          <p>更适合你这种“有点基础，但不多”的状态。先抓高频常考词，比一上来就啃厚词书更容易坚持。</p>
+        <article class="book-callout subtle">
+          <p class="mini-label">使用方式</p>
+          <h2>单词书照常背，网页负责留痕</h2>
+          <p>你可以继续用纸质单词书。这个网页只负责规划、记录、纠错和监督，不依赖别的背词 App。</p>
         </article>
       </aside>
     </header>
 
-    <main>
-      <section class="card section-space" id="dashboard">
+    <section class="card app-home section-space" id="quick-home">
+      <div class="section-head split">
         <div class="section-title">
-          <p class="eyebrow">总览</p>
-          <h2>你的四级学习仪表盘</h2>
+          <p class="eyebrow">快速开始</p>
+          <h2>像 App 一样直接记录今天</h2>
+        </div>
+        <p class="quick-copy">推荐顺序：背完单词书一页后马上记录，再去做题，再回来看错因。</p>
+      </div>
+
+      <div class="app-grid">
+        <a class="app-tile" href="#wordbook-log">
+          <span class="app-icon">词</span>
+          <strong>背词记录</strong>
+          <p>记今天背了哪一单元、多少词、感觉如何。</p>
+        </a>
+        <a class="app-tile" href="#practice-log">
+          <span class="app-icon">题</span>
+          <strong>做题记录</strong>
+          <p>记听力、阅读、写作或真题今天做了什么。</p>
+        </a>
+        <a class="app-tile" href="#error-lab">
+          <span class="app-icon">错</span>
+          <strong>纠错台</strong>
+          <p>把今天最该改的错误留下来，别让它明天重复。</p>
+        </a>
+        <a class="app-tile" href="#check-in">
+          <span class="app-icon">卡</span>
+          <strong>今晚打卡</strong>
+          <p>完成 3 项就算赢，不追求完美。</p>
+        </a>
+      </div>
+
+      <div class="today-strip">
+        <article class="today-card">
+          <span>今天先做</span>
+          <strong>背完单词书一页就记</strong>
+        </article>
+        <article class="today-card">
+          <span>今天优先补</span>
+          <strong>听力或阅读最弱项</strong>
+        </article>
+        <article class="today-card">
+          <span>今天最值钱</span>
+          <strong>留住错因</strong>
+        </article>
+      </div>
+    </section>
+
+    <main>
+      <section class="card section-space" id="plan-center">
+        <div class="section-title">
+          <p class="eyebrow">规划中心</p>
+          <h2>把时间缩短，5 月底前结束新内容</h2>
         </div>
         <div class="summary-grid">
           <article class="summary-card accent">
-            <span>当前策略</span>
-            <strong>词汇打底，听力优先，写作保底，阅读维持</strong>
-            <p>这不是平均用力，而是更适合你现阶段的得分路线。</p>
+            <span>新内容截止</span>
+            <strong>建议到 2026 年 5 月 31 日</strong>
+            <p>单词书新页、专项新题、写作新模板尽量在这之前完成。</p>
           </article>
           <article class="summary-card">
-            <span>每日标准版</span>
-            <strong>90 分钟</strong>
-            <p>单词 25 分钟，听力 30 分钟，阅读 20 分钟，写作 15 分钟。</p>
+            <span>6 月上旬</span>
+            <strong>只补弱点和错题</strong>
+            <p>不再大面积开新内容，把你最容易丢分的点补平。</p>
           </article>
           <article class="summary-card">
-            <span>监督方式</span>
-            <strong>每日打卡 + 本地复盘 + 晚间提醒</strong>
-            <p>你不需要完美，只需要连续。</p>
+            <span>最后 5 天</span>
+            <strong>只复盘，不冒进</strong>
+            <p>维持耳感、回看模板、复习错因，保证状态稳定。</p>
           </article>
         </div>
 
         <div class="roadmap-grid">
           <article class="roadmap-card">
-            <span class="roadmap-step">阶段 1</span>
-            <h3>现在到 5 月初</h3>
-            <p>先把学习节奏固定下来，重点是词汇和听力，不追求刷很多题。</p>
+            <span class="roadmap-step">第 1 段</span>
+            <h3>4 月下旬到 5 月 10 日</h3>
+            <p>单词书稳定推进，每天记背词进度，同时每周至少 3 次听力或阅读。</p>
           </article>
           <article class="roadmap-card">
-            <span class="roadmap-step">阶段 2</span>
-            <h3>5 月主训练期</h3>
-            <p>听力每周 4 次精听，写作建立模板库，阅读保持不断线。</p>
+            <span class="roadmap-step">第 2 段</span>
+            <h3>5 月 11 日到 5 月 24 日</h3>
+            <p>开始把做题记录和错因整理起来，重点看自己总是错在哪一类。</p>
           </article>
           <article class="roadmap-card">
-            <span class="roadmap-step">阶段 3</span>
-            <h3>考前两周</h3>
-            <p>整套训练和真题记录结合，开始固定考试节奏和时间分配。</p>
+            <span class="roadmap-step">第 3 段</span>
+            <h3>5 月 25 日到 5 月 31 日</h3>
+            <p>收掉最后一轮新内容，之后转入“复盘 + 纠错 + 稳状态”。</p>
           </article>
         </div>
-      </section>
 
-      <section class="card section-space" id="fast-plan">
-        <div class="section-title">
-          <p class="eyebrow">压缩版计划</p>
-          <h2>不要一直学到考试前，提前收口更稳</h2>
-        </div>
-        <div class="summary-grid">
-          <article class="summary-card accent">
-            <span>新内容截止日</span>
-            <strong>建议到 2026 年 5 月 31 日</strong>
-            <p>也就是说，单词新学、专项新题、作文新模板尽量在这之前完成。</p>
-          </article>
-          <article class="summary-card">
-            <span>6 月 1 日到 6 月 7 日</span>
-            <strong>查漏补缺周</strong>
-            <p>只补明显短板，不再大面积开新东西，把最容易丢分的点补平。</p>
-          </article>
-          <article class="summary-card">
-            <span>6 月 8 日到 6 月 12 日</span>
-            <strong>轻复盘周</strong>
-            <p>只做复习、听力保温、作文模板回看和错题回顾，让状态稳定下来。</p>
-          </article>
-        </div>
         <div class="lab-grid">
           <article class="lab-card teal">
-            <h3>你现在更适合的节奏</h3>
+            <h3>适合你的提速版目标</h3>
             <ul class="focus-list">
-              <li>4 月 24 日到 5 月 10 日：词汇打底，听力高频训练，作文建模板。</li>
-              <li>5 月 11 日到 5 月 24 日：真题和专项并行，阅读维持速度和手感。</li>
-              <li>5 月 25 日到 5 月 31 日：完成最后一轮新内容，准备进入只复盘模式。</li>
+              <li>标准日：每天 `60` 词，新词推进更快。</li>
+              <li>冲刺日：状态好时可以上到 `80` 词，但不要求天天都这样。</li>
+              <li>复习日：如果前两天吃得太多，就少开新词，多复习回收。</li>
             </ul>
           </article>
           <article class="lab-card warm">
-            <h3>为什么要提前收口</h3>
+            <h3>为什么不建议天天硬冲 80</h3>
             <ul class="focus-list">
-              <li>考前还在猛学新内容，容易越学越乱。</li>
-              <li>你现在听力和写作偏弱，更需要把学过的内容变稳，而不是不断开新坑。</li>
-              <li>最后 10 天最值钱的是状态、节奏和熟悉感。</li>
+              <li>你记性好，可以背得快，但做题反应和长期留存也要跟上。</li>
+              <li>真正危险的不是背得少，而是背得多却没有复习和纠错。</li>
+              <li>所以更稳的方案是 `60` 为主、`80` 为辅。</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="roadmap-grid">
+          <article class="roadmap-card">
+            <span class="roadmap-step">周计划 A</span>
+            <h3>周一到周五</h3>
+            <p>每天 60 新词，晚上回看当天和前一天最卡的词，保证速度和留存一起走。</p>
+          </article>
+          <article class="roadmap-card">
+            <span class="roadmap-step">周计划 B</span>
+            <h3>周六冲刺</h3>
+            <p>如果状态好，周六可以冲到 80 词；如果做了真题，就改成 40 新词 + 大量复习。</p>
+          </article>
+          <article class="roadmap-card">
+            <span class="roadmap-step">周计划 C</span>
+            <h3>周日回收</h3>
+            <p>周日尽量少开新词，把本周最容易混的词、做题里遇到的词和错因一起回收。</p>
+          </article>
+        </div>
+
+        <div class="section-title plan-subtitle">
+          <p class="eyebrow">完整执行版</p>
+          <h2>听力、做题、写作也一起这样排</h2>
+        </div>
+
+        <div class="summary-grid">
+          <article class="summary-card accent">
+            <span>每天主线</span>
+            <strong>单词 60 + 听力 25 分钟 + 做题 20 分钟 + 写作 15 分钟</strong>
+            <p>这是标准日，已经够强，不需要每天都拉满到极限。</p>
+          </article>
+          <article class="summary-card">
+            <span>听力优先级</span>
+            <strong>每周至少 4 次</strong>
+            <p>你弱项在听力，所以它不能让位给背词速度。</p>
+          </article>
+          <article class="summary-card">
+            <span>写作优先级</span>
+            <strong>每周至少 3 次</strong>
+            <p>不求每次写满篇，但要持续写，保持表达不卡。</p>
+          </article>
+        </div>
+
+        <div class="roadmap-grid weekly-routine">
+          <article class="roadmap-card">
+            <span class="roadmap-step">周一</span>
+            <h3>背词 + 听力主练</h3>
+            <p>60 新词，听力 25 分钟，做 1 组短练，晚上记今天最卡的听力点。</p>
+          </article>
+          <article class="roadmap-card">
+            <span class="roadmap-step">周二</span>
+            <h3>背词 + 阅读做题</h3>
+            <p>60 新词，阅读或选词填空 20 分钟，写一句“今天定位最慢的原因”。</p>
+          </article>
+          <article class="roadmap-card">
+            <span class="roadmap-step">周三</span>
+            <h3>背词 + 写作短练</h3>
+            <p>60 新词，写作 15 到 20 分钟，至少写完一段主体段或一篇小作文。</p>
+          </article>
+          <article class="roadmap-card">
+            <span class="roadmap-step">周四</span>
+            <h3>背词 + 听力回听</h3>
+            <p>60 新词，听力回听为主，不只做题，要把漏听原因说清楚。</p>
+          </article>
+          <article class="roadmap-card">
+            <span class="roadmap-step">周五</span>
+            <h3>背词 + 混合做题</h3>
+            <p>60 新词，听力或阅读二选一，再写下本周重复出现最多的一个错误。</p>
+          </article>
+          <article class="roadmap-card">
+            <span class="roadmap-step">周六</span>
+            <h3>冲刺日 / 真题日</h3>
+            <p>状态好就 80 词；如果做真题，就改成 40 新词 + 真题记录 + 错因复盘。</p>
+          </article>
+          <article class="roadmap-card">
+            <span class="roadmap-step">周日</span>
+            <h3>复习回收日</h3>
+            <p>40 词复习日，回看本周做题和纠错记录，写下下周最该补的 2 个点。</p>
+          </article>
+        </div>
+
+        <div class="lab-grid">
+          <article class="lab-card teal">
+            <h3>听力怎么安排最划算</h3>
+            <ul class="focus-list">
+              <li>每周 4 次，每次 20 到 30 分钟，胜过周末一次学很久。</li>
+              <li>两次以“做题 + 回听”为主，两次以“精听 + 跟读”为主。</li>
+              <li>重点不是做了几题，而是有没有记下为什么没听出来。</li>
+            </ul>
+          </article>
+          <article class="lab-card warm">
+            <h3>写作怎么安排更稳</h3>
+            <ul class="focus-list">
+              <li>每周 3 次短练，1 次完整写作，别等考前才写。</li>
+              <li>一周里至少有 1 次只练开头结尾，1 次练主体段，1 次练完整结构。</li>
+              <li>写完后一定写一句“今天最想改掉的表达问题”。</li>
             </ul>
           </article>
         </div>
       </section>
 
-      <section class="card section-space" id="vocab-lab">
-        <div class="section-head split">
-          <div class="section-title">
-            <p class="eyebrow">单词学习</p>
-            <h2>今天背这些，更适合冲四级</h2>
-          </div>
-          <div class="filter-row">
-            <button class="chip active" data-word-filter="today">今日词单</button>
-            <button class="chip" data-word-filter="review">待复习</button>
-            <button class="chip" data-word-filter="all">全部词卡</button>
-          </div>
+      <section class="card section-space" id="wordbook-log">
+        <div class="section-title">
+          <p class="eyebrow">单词书记录</p>
+          <h2>背完就记，不让今天的努力消失</h2>
         </div>
 
         <div class="stat-grid">
           <article class="mini-stat">
-            <span>已掌握</span>
-            <strong id="knownWordsCount">0</strong>
+            <span>累计记录天数</span>
+            <strong id="wordbookDaysCount">0</strong>
           </article>
           <article class="mini-stat">
-            <span>待复习</span>
-            <strong id="reviewWordsCount">0</strong>
+            <span>累计背词数量</span>
+            <strong id="wordbookWordsCount">0</strong>
           </article>
           <article class="mini-stat">
-            <span>今日推荐</span>
-            <strong id="todayWordsCount">0</strong>
+            <span>今天目标</span>
+            <strong id="wordbookTodayTarget">60 词</strong>
           </article>
         </div>
 
-        <div class="word-deck" id="wordDeck"></div>
+        <div class="form-grid">
+          <article class="input-card">
+            <h3>新增一条背词记录</h3>
+            <label class="field">
+              <span>日期</span>
+              <input id="wordbookDate" type="date">
+            </label>
+            <label class="field">
+              <span>单词书进度</span>
+              <input id="wordbookUnit" type="text" placeholder="例如：第 12 单元 / 第 43 页">
+            </label>
+            <div class="inline-fields">
+              <label class="field">
+                <span>今天背了多少词</span>
+                <input id="wordbookCount" type="number" min="0" placeholder="40">
+              </label>
+              <label class="field">
+                <span>今天感觉</span>
+                <input id="wordbookFeeling" type="text" placeholder="例如：核心词还行，近义词容易混">
+              </label>
+            </div>
+            <label class="field">
+              <span>最卡的 3 个词</span>
+              <input id="wordbookHardWords" type="text" placeholder="例如：facilitate, derive, substantial">
+            </label>
+            <button class="button primary" id="saveWordbookBtn">保存背词记录</button>
+          </article>
+
+          <article class="log-card">
+            <h3>最近的背词记录</h3>
+            <div class="empty-state" id="wordbookEmpty">还没有背词记录，今天背完一页就先记上来。</div>
+            <div class="log-list" id="wordbookLogList"></div>
+          </article>
+        </div>
       </section>
 
-      <section class="card section-space" id="listening-lab">
+      <section class="card section-space" id="practice-log">
         <div class="section-title">
-          <p class="eyebrow">听力专项</p>
-          <h2>听力补弱，不要只做题</h2>
+          <p class="eyebrow">做题记录</p>
+          <h2>你今天练了什么，比做了多久更重要</h2>
         </div>
 
         <div class="lab-grid">
           <article class="lab-card teal">
-            <h3>今天的听力流程</h3>
-            <ol class="ordered-list">
-              <li>先听一遍，感受主题，不暂停。</li>
-              <li>第二遍边听边记，找出没反应过来的词。</li>
-              <li>对照答案，回听转折、数字、因果和态度词。</li>
-              <li>最后跟读 3 分钟，让耳朵和嘴同步。</li>
-            </ol>
+            <h3>推荐记录法</h3>
+            <ul class="focus-list">
+              <li>练完就记题型，不要晚上再回忆。</li>
+              <li>不要只写“做了听力”，要写到具体材料或套题。</li>
+              <li>每次至少写一句“今天最大问题”。</li>
+            </ul>
           </article>
           <article class="lab-card warm">
-            <h3>你最该记录的不是分数</h3>
+            <h3>适合你目前的优先级</h3>
             <ul class="focus-list">
-              <li>是没听到词，还是听到了却没反应出意思。</li>
-              <li>是连读、弱读、语速快，还是转折后信息漏掉。</li>
-              <li>每次只盯一个问题改，进步会更快。</li>
+              <li>先盯听力和写作，但阅读不能断。</li>
+              <li>做题记录是为了发现重复错误，不是为了凑数量。</li>
+              <li>每周回看一次记录，你会看出自己的固定弱点。</li>
             </ul>
           </article>
         </div>
 
         <div class="form-grid">
           <article class="input-card">
-            <h3>新增一条听力训练记录</h3>
+            <h3>新增一条做题记录</h3>
             <label class="field">
-              <span>材料</span>
-              <input id="listeningMaterial" type="text" placeholder="例如：2025 年 12 月真题 Section B">
+              <span>日期</span>
+              <input id="practiceDate" type="date">
+            </label>
+            <div class="inline-fields">
+              <label class="field">
+                <span>题型</span>
+                <input id="practiceType" type="text" placeholder="例如：听力 / 阅读 / 写作 / 真题">
+              </label>
+              <label class="field">
+                <span>材料</span>
+                <input id="practiceMaterial" type="text" placeholder="例如：2024 年 6 月真题 Section B">
+              </label>
+            </div>
+            <label class="field">
+              <span>今天最大问题</span>
+              <input id="practiceProblem" type="text" placeholder="例如：转折后内容漏听，阅读定位慢">
             </label>
             <label class="field">
-              <span>今天卡在哪里</span>
-              <input id="listeningIssue" type="text" placeholder="例如：长对话里转折后内容总漏听">
+              <span>明天补法</span>
+              <input id="practiceNext" type="text" placeholder="例如：回听转折词后的句子，阅读先划关键词">
             </label>
-            <label class="field">
-              <span>下次怎么改</span>
-              <input id="listeningNext" type="text" placeholder="例如：回听时专门盯 however、but、actually">
-            </label>
-            <button class="button primary" id="saveListeningBtn">保存听力记录</button>
+            <button class="button primary" id="savePracticeBtn">保存做题记录</button>
           </article>
+
           <article class="log-card">
-            <h3>最近的听力记录</h3>
-            <div class="empty-state" id="listeningEmpty">还没有记录，今天先补第一条。</div>
-            <div class="log-list" id="listeningLogList"></div>
+            <h3>最近的做题记录</h3>
+            <div class="empty-state" id="practiceEmpty">还没有做题记录，今天做完一组题就记上来。</div>
+            <div class="log-list" id="practiceLogList"></div>
           </article>
         </div>
       </section>
 
-      <section class="card section-space" id="reading-lab">
+      <section class="card section-space" id="error-lab">
         <div class="section-title">
-          <p class="eyebrow">阅读专项</p>
-          <h2>阅读不用猛攻，但绝不能掉线</h2>
-        </div>
-
-        <div class="lab-grid">
-          <article class="lab-card teal">
-            <h3>阅读的最低保底策略</h3>
-            <ul class="focus-list">
-              <li>每周至少做 3 次阅读，不求很多，但不能断。</li>
-              <li>先练定位，再练速度，不要一上来逐句死抠。</li>
-              <li>选词填空、仔细阅读、匹配题都要轮着碰一碰。</li>
-            </ul>
-          </article>
-          <article class="lab-card warm">
-            <h3>你最容易吃亏的地方</h3>
-            <ul class="focus-list">
-              <li>单词认识得不稳，定位到了也不敢选。</li>
-              <li>为了听力和写作猛补，结果阅读手感掉了。</li>
-              <li>时间控制不住，后面题做得很慌。</li>
-            </ul>
-          </article>
-        </div>
-
-        <div class="form-grid">
-          <article class="input-card">
-            <h3>新增一条阅读训练记录</h3>
-            <label class="field">
-              <span>材料</span>
-              <input id="readingMaterial" type="text" placeholder="例如：2024 年 6 月真题 仔细阅读">
-            </label>
-            <label class="field">
-              <span>问题</span>
-              <input id="readingIssue" type="text" placeholder="例如：定位慢，选项对比容易犹豫">
-            </label>
-            <label class="field">
-              <span>下次改法</span>
-              <input id="readingNext" type="text" placeholder="例如：先划题干关键词，再带着关键词回文定位">
-            </label>
-            <button class="button primary" id="saveReadingBtn">保存阅读记录</button>
-          </article>
-          <article class="log-card">
-            <h3>最近的阅读记录</h3>
-            <div class="empty-state" id="readingEmpty">还没有阅读记录，建议今天先做一篇。</div>
-            <div class="log-list" id="readingLogList"></div>
-          </article>
-        </div>
-      </section>
-
-      <section class="card section-space" id="writing-studio">
-        <div class="section-head split">
-          <div class="section-title">
-            <p class="eyebrow">作文专项</p>
-            <h2>先写得稳，再追求高级</h2>
-          </div>
-          <button class="button secondary" id="shufflePromptBtn">换一道作文题</button>
+          <p class="eyebrow">纠错台</p>
+          <h2>把错误写清楚，才叫真正复盘</h2>
         </div>
 
         <div class="writing-grid">
           <article class="prompt-card">
-            <span class="mini-label">今日作文题</span>
-            <h3 id="writingPromptTitle">How to Make Better Use of Time in College</h3>
-            <p id="writingPromptGuide">可以从时间管理、效率提升和自我规划三个角度展开。</p>
+            <span class="mini-label">纠错模板</span>
+            <h3>每次只改一个错因</h3>
             <div class="template-box">
-              <p class="template-title">三段式保底框架</p>
-              <p>开头：点题表态。中间：两点原因或建议。结尾：总结并给出行动方向。</p>
+              <p class="template-title">推荐结构</p>
+              <p>我错在什么 -> 为什么会错 -> 下次怎么防止再错。</p>
             </div>
             <div class="template-box">
-              <p class="template-title">作文自检 4 项</p>
+              <p class="template-title">常见错因</p>
               <ul class="focus-list compact">
-                <li>有没有明确主题句。</li>
-                <li>有没有两点清楚理由。</li>
-                <li>有没有明显语法错误和拼写错误。</li>
-                <li>结尾有没有回扣主题。</li>
+                <li>背过词但不会在题里认。</li>
+                <li>听到了词但没反应出意思。</li>
+                <li>阅读定位到了，但选项比较不清。</li>
+                <li>作文知道意思，却写不出顺句子。</li>
               </ul>
             </div>
           </article>
+
           <article class="draft-card">
-            <h3>你的作文练习区</h3>
-            <textarea id="writingDraft" placeholder="先别怕写得不高级，先把结构写顺。"></textarea>
+            <h3>今天最该纠正的一条错误</h3>
+            <textarea id="errorCorrection" placeholder="例如：今天听力错在转折词后反应慢。原因是平时只做题不回听。明天要专门回听 however / but 后面的句子。"></textarea>
             <div class="hero-actions compact-actions">
-              <button class="button primary" id="saveWritingBtn">保存作文草稿</button>
-              <span class="save-tip" id="writingSaveTip">草稿保存在这台设备的浏览器里。</span>
+              <button class="button primary" id="saveErrorBtn">保存纠错笔记</button>
+              <span class="save-tip" id="errorSaveTip">纠错笔记保存在这台设备里。</span>
             </div>
-          </article>
-        </div>
-      </section>
-
-      <section class="card section-space" id="mock-center">
-        <div class="section-title">
-          <p class="eyebrow">真题记录系统</p>
-          <h2>把你做过的套题真正留下来</h2>
-        </div>
-
-        <div class="form-grid">
-          <article class="input-card">
-            <h3>新增一条真题记录</h3>
-            <label class="field">
-              <span>日期</span>
-              <input id="mockDate" type="date">
-            </label>
-            <label class="field">
-              <span>卷子名称</span>
-              <input id="mockName" type="text" placeholder="例如：2024 年 12 月第一套">
-            </label>
-            <div class="inline-fields">
-              <label class="field">
-                <span>听力</span>
-                <input id="mockListening" type="number" min="0" max="249" placeholder="170">
-              </label>
-              <label class="field">
-                <span>阅读</span>
-                <input id="mockReading" type="number" min="0" max="249" placeholder="160">
-              </label>
-            </div>
-            <div class="inline-fields">
-              <label class="field">
-                <span>写作翻译</span>
-                <input id="mockWriting" type="number" min="0" max="212" placeholder="130">
-              </label>
-              <label class="field">
-                <span>总分</span>
-                <input id="mockTotal" type="number" min="0" max="710" placeholder="460">
-              </label>
-            </div>
-            <label class="field">
-              <span>复盘</span>
-              <input id="mockNote" type="text" placeholder="例如：听力前半段状态不好，阅读定位有进步">
-            </label>
-            <button class="button primary" id="saveMockBtn">保存真题记录</button>
-          </article>
-          <article class="log-card">
-            <h3>你的真题记录</h3>
-            <div class="empty-state" id="mockEmpty">还没有真题记录，建议从最近一套开始。</div>
-            <div class="record-list" id="mockRecordList"></div>
           </article>
         </div>
       </section>
@@ -371,7 +426,7 @@
       <section class="card section-space" id="check-in">
         <div class="section-title">
           <p class="eyebrow">每日打卡</p>
-          <h2>今天完成 3 项，就已经在赢了</h2>
+          <h2>今天完成 3 项，就已经很好了</h2>
         </div>
         <div class="checklist" id="checklist"></div>
         <div class="stats-row">
@@ -387,12 +442,12 @@
 
         <div class="note-grid">
           <article class="note-panel">
-            <label class="note-label" for="dailyFocus">今天最该补的一个点</label>
-            <textarea id="dailyFocus" placeholder="例如：作文开头总是空泛；长对话里转折后内容漏听。"></textarea>
+            <label class="note-label" for="dailyFocus">明天最该先补什么</label>
+            <textarea id="dailyFocus" placeholder="例如：先回顾今天卡住的 3 个词，再做一组长对话。"></textarea>
           </article>
           <article class="note-panel">
             <label class="note-label" for="weeklyReview">本周复盘</label>
-            <textarea id="weeklyReview" placeholder="例如：这周词汇坚持得不错，但听力回听不够，下周优先补这个动作。"></textarea>
+            <textarea id="weeklyReview" placeholder="例如：这周背词能坚持，但做题后记错因不够，下周要把纠错写得更具体。"></textarea>
           </article>
         </div>
         <div class="hero-actions compact-actions">
@@ -400,37 +455,16 @@
           <span class="save-tip" id="saveTip">内容保存在这台设备的浏览器里。</span>
         </div>
       </section>
-
-      <section class="card section-space" id="sources">
-        <div class="section-title">
-          <p class="eyebrow">依据与状态</p>
-          <h2>你这次提的需求，现在完成到哪一步</h2>
-        </div>
-
-        <div class="status-grid">
-          <article class="status-item done">
-            <h3>已经补上</h3>
-            <p>更像正式产品的首页和导航、单词学习、听力专项、作文专项、真题记录系统、打卡与复盘。</p>
-          </article>
-          <article class="status-item partial">
-            <h3>还差最后一步</h3>
-            <p>在线发布需要一个可用的托管通道或账号环境。我会继续帮你把站点准备成可直接上线的静态版本。</p>
-          </article>
-          <article class="status-item future">
-            <h3>继续升级方向</h3>
-            <p>后面还能补阅读专项、错题本、真题趋势图、更多词卡和在线同步。</p>
-          </article>
-        </div>
-
-        <ul class="sources">
-          <li><a href="https://cet.neea.edu.cn/html1/report/2603/2-1.htm" target="_blank" rel="noreferrer">中国教育考试网：2026 上半年 CET 报名说明</a></li>
-          <li><a href="https://apps.apple.com/cn/app/%E5%BD%A9%E8%99%B9%E5%8D%95%E8%AF%8D-%E5%9B%9B%E7%BA%A7%E8%AF%8D%E6%B1%87%E9%97%AA%E8%BF%87/id6502644844" target="_blank" rel="noreferrer">彩虹单词 App：四级词汇闪过配套学习方式</a></li>
-          <li><a href="https://product.dangdang.com/product.aspx?product_id=25310435" target="_blank" rel="noreferrer">当当：新东方四级词汇词根+联想记忆法 乱序便携版</a></li>
-          <li><a href="https://apps.apple.com/cn/app/%E6%98%9F%E7%81%AB%E8%8B%B1%E8%AF%AD-%E8%8B%B1%E8%AF%AD%E5%9B%9B%E7%BA%A7-%E8%8B%B1%E8%AF%AD%E5%85%AD%E7%BA%A7%E5%AD%A6%E4%B9%A0%E5%B7%A5%E5%85%B7/id1124748734?l=en-GB" target="_blank" rel="noreferrer">星火英语 App：四级专项训练能力结构</a></li>
-        </ul>
-      </section>
     </main>
   </div>
+
+  <nav class="mobile-tabbar" aria-label="手机底部导航">
+    <a href="#quick-home">首页</a>
+    <a href="#wordbook-log">背词</a>
+    <a href="#practice-log">做题</a>
+    <a href="#error-lab">纠错</a>
+    <a href="#check-in">打卡</a>
+  </nav>
 
   <script src="script.js"></script>
 </body>

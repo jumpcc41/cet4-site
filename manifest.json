@@ -1,11 +1,11 @@
 {
-  "name": "四级冲刺学习台",
-  "short_name": "四级学习台",
+  "name": "四级单词书搭配学习台",
+  "short_name": "四级打卡台",
   "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#f3efe5",
   "theme_color": "#0f766e",
-  "description": "英语四级学习网页 App，包含单词学习、听力专项、作文训练、真题记录和每日打卡。",
+  "description": "配合四级单词书使用的规划、打卡、做题记录和错题纠正网页。",
   "icons": [
     {
       "src": "icon.svg",
