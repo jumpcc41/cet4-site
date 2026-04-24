@@ -1,0 +1,17 @@
+{
+  "name": "四级冲刺学习台",
+  "short_name": "四级学习台",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#f3efe5",
+  "theme_color": "#0f766e",
+  "description": "英语四级学习网页 App，包含单词学习、听力专项、作文训练、真题记录和每日打卡。",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}
